@@ -93,7 +93,7 @@ Backend runs on **[http://localhost:5000](http://localhost:5000)**
 * Frontend: [Vercel](https://vercel.com/)
 * Backend: \[Render / Railway / Heroku]
 
-(Currently deployed at: 🔗 [help-sync.vercel.app](https://help-sync.vercel.app))
+(Currently deployed at: 🔗 [help-sync-one.vercel.app]
 
 ---
 
