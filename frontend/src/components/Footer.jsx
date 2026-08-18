@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-orange-50 to-amber-50 border-t border-orange-100">
+    <footer className="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-slate-900 dark:to-slate-950 border-t border-orange-100 dark:border-slate-800 transition-colors duration-500">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -16,13 +16,13 @@ const Footer = () => {
               <div className="bg-gradient-to-r from-orange-400 to-amber-400 p-2 rounded-lg">
                 <Heart className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800">HelpSync</h3>
+              <h3 className="text-2xl font-bold text-gray-805 dark:text-white">HelpSync</h3>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-gray-600 dark:text-slate-400 text-sm leading-relaxed">
               Connecting hearts, building communities. Your neighbor's helping
               hand is just a click away.
             </p>
-            <div className="flex items-center space-x-2 text-sm text-orange-600">
+            <div className="flex items-center space-x-2 text-sm text-orange-600 dark:text-orange-400">
               <Users className="h-4 w-4" />
               <span className="font-medium">
                 Building stronger communities across India
@@ -32,14 +32,14 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-gray-800 border-b-2 border-orange-200 pb-2">
+            <h4 className="text-lg font-semibold text-gray-800 dark:text-slate-200 border-b-2 border-orange-200 dark:border-slate-800 pb-2">
               Quick Links
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/"
-                  className="text-gray-600 hover:text-orange-600 transition-colors text-sm"
+                  className="text-gray-605 hover:text-orange-600 dark:text-slate-400 dark:hover:text-orange-400 transition-colors text-sm"
                 >
                   Home
                 </Link>
@@ -47,7 +47,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/about"
-                  className="text-gray-600 hover:text-orange-600 transition-colors text-sm"
+                  className="text-gray-605 hover:text-orange-600 dark:text-slate-400 dark:hover:text-orange-400 transition-colors text-sm"
                 >
                   About Us
                 </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/help"
-                  className="text-gray-600 hover:text-orange-600 transition-colors text-sm"
+                  className="text-gray-605 hover:text-orange-600 dark:text-slate-400 dark:hover:text-orange-400 transition-colors text-sm"
                 >
                   Get Help
                 </Link>
@@ -63,7 +63,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/report"
-                  className="text-gray-600 hover:text-orange-600 transition-colors text-sm"
+                  className="text-gray-650 hover:text-orange-600 dark:text-slate-400 dark:hover:text-orange-400 transition-colors text-sm"
                 >
                   Report Issue
                 </Link>
@@ -73,21 +73,21 @@ const Footer = () => {
 
           {/* Get in Touch */}
           <div className="space-y-4 lg:col-span-2">
-            <h4 className="text-lg font-semibold text-gray-800 border-b-2 border-orange-200 pb-2">
+            <h4 className="text-lg font-semibold text-gray-850 dark:text-slate-200 border-b-2 border-orange-200 dark:border-slate-800 pb-2">
               Get in Touch
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Creator */}
               <div className="space-y-3">
-                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                <div className="flex items-center space-x-3 text-sm text-gray-600 dark:text-slate-400">
                   <Mail className="h-4 w-4 text-orange-500" />
                   <span>assaininnl2003@gmail.com</span>
                 </div>
-                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                <div className="flex items-center space-x-3 text-sm text-gray-600 dark:text-slate-400">
                   <Phone className="h-4 w-4 text-orange-500" />
                   <span>+91 8053717943</span>
                 </div>
-                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                <div className="flex items-center space-x-3 text-sm text-gray-600 dark:text-slate-400">
                   <MapPin className="h-4 w-4 text-orange-500" />
                   <span>Narnaul, Haryana, India</span>
                 </div>
@@ -96,16 +96,16 @@ const Footer = () => {
                   <a
                     href="https://www.linkedin.com/in/ankit-saini11/"
                     target="_blank"
-                    className="bg-orange-100 hover:bg-orange-200 p-2 rounded-full transition-colors"
+                    className="bg-orange-100 hover:bg-orange-200 dark:bg-slate-800 dark:hover:bg-slate-700 p-2 rounded-full transition-colors"
                   >
-                    <Linkedin className="h-4 w-4 text-orange-600" />
+                    <Linkedin className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                   </a>
                   <a
                     href="https://github.com/Ankitsani"
                     target="_blank"
-                    className="bg-orange-100 hover:bg-orange-200 p-2 rounded-full transition-colors"
+                    className="bg-orange-100 hover:bg-orange-200 dark:bg-slate-800 dark:hover:bg-slate-700 p-2 rounded-full transition-colors"
                   >
-                    <FaGithub className="h-4 w-4 text-orange-600" />
+                    <FaGithub className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                   </a>
                 </div>
               </div>
@@ -114,24 +114,24 @@ const Footer = () => {
         </div>
 
         {/* Values Banner */}
-        <div className="mt-12 pt-8 border-t border-orange-200">
-          <div className="bg-gradient-to-r from-orange-100 to-amber-100 rounded-xl p-6">
+        <div className="mt-12 pt-8 border-t border-orange-200 dark:border-slate-800">
+          <div className="bg-gradient-to-r from-orange-100 to-amber-100 dark:from-slate-850 dark:to-slate-900 border border-transparent dark:border-slate-800/80 rounded-xl p-6">
             <div className="text-center">
-              <h5 className="text-lg font-semibold text-gray-800 mb-3">
+              <h5 className="text-lg font-semibold text-gray-805 dark:text-slate-200 mb-3">
                 🙏 Our Values - हमारे मूल्य
               </h5>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                 <div className="flex items-center justify-center space-x-2">
-                  <span className="text-orange-600 font-medium">Seva</span>
-                  <span className="text-gray-600">• Service with Love</span>
+                  <span className="text-orange-600 dark:text-orange-400 font-medium">Seva</span>
+                  <span className="text-gray-600 dark:text-slate-400">• Service with Love</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
-                  <span className="text-orange-600 font-medium">Sahayata</span>
-                  <span className="text-gray-600">• Help & Support</span>
+                  <span className="text-orange-600 dark:text-orange-400 font-medium">Sahayata</span>
+                  <span className="text-gray-600 dark:text-slate-400">• Help & Support</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
-                  <span className="text-orange-600 font-medium">Sangam</span>
-                  <span className="text-gray-600">• Unity in Community</span>
+                  <span className="text-orange-600 dark:text-orange-400 font-medium">Sangam</span>
+                  <span className="text-gray-600 dark:text-slate-400">• Unity in Community</span>
                 </div>
               </div>
             </div>
@@ -140,15 +140,15 @@ const Footer = () => {
       </div>
 
       {/* Bottom Copyright */}
-      <div className="bg-white border-t border-orange-100">
+      <div className="bg-white dark:bg-slate-950 border-t border-orange-100 dark:border-slate-850 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
+            <div className="flex items-center space-x-2 text-sm text-gray-650 dark:text-slate-450">
               <Heart className="h-4 w-4 text-red-500" />
               <span>Made with love in India</span>
               <span className="text-orange-500">🇮🇳</span>
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-650 dark:text-slate-450">
               © 2025 HelpSync. All rights reserved.
             </div>
           </div>

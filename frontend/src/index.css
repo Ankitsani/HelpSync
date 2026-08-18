@@ -2,10 +2,18 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     font-family: 'Poppins', sans-serif;
-    background-color: #212121;
-    color: white;
+    background-color: #121212;
+    color: #f3f4f6;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  body.light {
+    background-color: #fcfbf9;
+    color: #1f2937;
   }
 }
 

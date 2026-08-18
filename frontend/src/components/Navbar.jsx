@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import useAuthStore from "../store/userAuth";
+import useThemeStore from "../store/themeStore";
+import { Sun, Moon } from "lucide-react";
 
 const Navbar = () => {
   const location = useLocation();
@@ -8,6 +10,7 @@ const Navbar = () => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const { authUser, getUser, logoutUser } = useAuthStore();
+  const { theme, toggleTheme } = useThemeStore();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -47,24 +50,24 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-900/95 via-red-900/90 to-gray-900/95 backdrop-blur-xl border-b border-red-400/30 shadow-2xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/90 text-slate-800 border-b border-orange-100/80 dark:bg-gradient-to-r dark:from-gray-900/95 dark:via-red-900/90 dark:to-gray-900/95 dark:text-white dark:border-red-400/20 shadow-md dark:shadow-2xl backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center space-x-1 cursor-pointer hover:scale-105 transition-transform duration-300"
+            className="flex items-center space-x-2 cursor-pointer hover:scale-105 transition-transform duration-300"
           >
             <div className="relative">
               <img
                 src="/hivelogo.png"
-                alt="HelpHive Logo"
-                className="w-15 h-10"
+                alt="HelpSync Logo"
+                className="w-12 h-8 object-contain"
               />
             </div>
-            <h1 className="text-2xl font-bold text-white drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300">
+            <h1 className="text-2xl font-bold text-slate-800 dark:text-white transition-colors duration-500 drop-shadow-md hover:drop-shadow-2xl">
               Help
-              <span className="text-transparent bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text">
+              <span className="text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text font-extrabold">
                 Sync
               </span>
             </h1>
@@ -74,15 +77,15 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-6">
             <Link
               to="/help"
-              className={`relative transition-all duration-300 text-lg font-medium group hover:-translate-y-1 ${
+              className={`relative transition-all duration-300 text-lg font-medium group hover:-translate-y-0.5 ${
                 isActive("/help")
-                  ? "text-red-300"
-                  : "text-gray-100 hover:text-red-300"
+                  ? "text-orange-500 dark:text-red-300"
+                  : "text-slate-600 hover:text-orange-500 dark:text-gray-100 dark:hover:text-red-300"
               }`}
             >
               <span className="relative z-10">Ask for help</span>
               <div
-                className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-red-400 to-red-600 transform transition-transform duration-300 ${
+                className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 dark:from-red-400 dark:to-red-600 transform transition-transform duration-300 ${
                   isActive("/help")
                     ? "scale-x-100"
                     : "scale-x-0 group-hover:scale-x-100"
@@ -91,15 +94,15 @@ const Navbar = () => {
             </Link>
             <Link
               to="/offer-help"
-              className={`relative transition-all duration-300 text-lg font-medium group hover:-translate-y-1 ${
+              className={`relative transition-all duration-300 text-lg font-medium group hover:-translate-y-0.5 ${
                 isActive("/offer-help")
-                  ? "text-red-300"
-                  : "text-gray-100 hover:text-red-300"
+                  ? "text-orange-500 dark:text-red-300"
+                  : "text-slate-600 hover:text-orange-500 dark:text-gray-100 dark:hover:text-red-300"
               }`}
             >
               <span className="relative z-10">Offer help</span>
               <div
-                className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-red-400 to-red-600 transform transition-transform duration-300 ${
+                className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 dark:from-red-400 dark:to-red-600 transform transition-transform duration-300 ${
                   isActive("/offer-help")
                     ? "scale-x-100"
                     : "scale-x-0 group-hover:scale-x-100"
@@ -108,33 +111,32 @@ const Navbar = () => {
             </Link>
             <Link
               to="/report"
-              className={`relative transition-all duration-300 text-lg font-medium group hover:-translate-y-1 ${
+              className={`relative transition-all duration-300 text-lg font-medium group hover:-translate-y-0.5 ${
                 isActive("/report")
-                  ? "text-red-300"
-                  : "text-gray-100 hover:text-red-300"
+                  ? "text-orange-500 dark:text-red-300"
+                  : "text-slate-600 hover:text-orange-500 dark:text-gray-100 dark:hover:text-red-300"
               }`}
             >
               <span className="relative z-10">Report Issue</span>
               <div
-                className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-red-400 to-red-600 transform transition-transform duration-300 ${
+                className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 dark:from-red-400 dark:to-red-600 transform transition-transform duration-300 ${
                   isActive("/report")
                     ? "scale-x-100"
                     : "scale-x-0 group-hover:scale-x-100"
                 }`}
               ></div>
             </Link>
-
             <Link
               to="/about"
-              className={`relative transition-all duration-300 text-lg font-medium group hover:-translate-y-1 ${
+              className={`relative transition-all duration-300 text-lg font-medium group hover:-translate-y-0.5 ${
                 isActive("/about")
-                  ? "text-red-300"
-                  : "text-gray-100 hover:text-red-300"
+                  ? "text-orange-500 dark:text-red-300"
+                  : "text-slate-600 hover:text-orange-500 dark:text-gray-100 dark:hover:text-red-300"
               }`}
             >
               <span className="relative z-10">About us</span>
               <div
-                className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-red-400 to-red-600 transform transition-transform duration-300 ${
+                className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 dark:from-red-400 dark:to-red-600 transform transition-transform duration-300 ${
                   isActive("/about")
                     ? "scale-x-100"
                     : "scale-x-0 group-hover:scale-x-100"
@@ -142,18 +144,31 @@ const Navbar = () => {
               ></div>
             </Link>
 
+            {/* Desktop Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border border-slate-200 dark:border-slate-800"
+              aria-label="Toggle dark mode"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5 text-amber-450" />
+              ) : (
+                <Moon className="w-5 h-5 text-indigo-600" />
+              )}
+            </button>
+
             {/* Auth Links with Enhanced Styling */}
-            <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-red-400/40">
+            <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-slate-200 dark:border-red-400/40">
               {!authUser && (
                 <Link
                   to="/auth"
-                  className="relative transition-all duration-300 text-lg font-medium group hover:-translate-y-1 text-yellow-400 hover:text-orange-400 px-3 py-1 rounded-lg hover:bg-gradient-to-r hover:from-yellow-500/20 hover:to-orange-500/20 backdrop-blur-sm border border-transparent hover:border-orange-400/30 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+                  className="relative transition-all duration-300 text-lg font-medium group hover:-translate-y-0.5 text-orange-500 dark:text-yellow-400 hover:text-orange-600 dark:hover:text-orange-400 px-3 py-1 rounded-lg hover:bg-orange-50 dark:hover:bg-gradient-to-r dark:hover:from-yellow-500/20 dark:hover:to-orange-500/20 border border-transparent dark:hover:border-orange-400/30 hover:scale-105"
                 >
                   <span className="relative z-10 font-semibold">
                     Signin / Signup
                   </span>
                   <div
-                    className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 transform transition-transform duration-300 ${
+                    className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 dark:from-yellow-400 dark:to-orange-500 transform transition-transform duration-300 ${
                       isActive("/auth")
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
@@ -363,11 +378,24 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu button + Theme Toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-105 cursor-pointer border border-slate-200 dark:border-slate-850"
+              aria-label="Toggle dark mode"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4 text-amber-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-indigo-650" />
+              )}
+            </button>
+
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-orange-400 transition-colors duration-300"
+              className="text-slate-700 dark:text-white hover:text-orange-500 dark:hover:text-orange-450 transition-colors duration-300 p-1"
             >
               <svg
                 className="w-6 h-6"
@@ -388,15 +416,15 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-gradient-to-r from-gray-900/98 via-red-900/95 to-gray-900/98 backdrop-blur-xl border-t border-red-400/30">
+          <div className="md:hidden transition-colors duration-500 bg-white/95 text-slate-850 border-t border-orange-100 dark:bg-gradient-to-r dark:from-gray-900/98 dark:via-red-900/95 dark:to-gray-900/98 dark:text-white dark:border-red-400/25 backdrop-blur-xl">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
                 to="/help"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
                   isActive("/help")
-                    ? "text-red-300 bg-red-900/50"
-                    : "text-gray-100 hover:text-red-300 hover:bg-red-900/30"
+                    ? "text-orange-500 bg-orange-50 dark:text-red-300 dark:bg-red-900/50"
+                    : "text-slate-650 hover:text-orange-500 hover:bg-slate-100 dark:text-gray-100 dark:hover:text-red-300 dark:hover:bg-red-900/30"
                 }`}
               >
                 Ask for help
@@ -406,8 +434,8 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
                   isActive("/offer-help")
-                    ? "text-red-300 bg-red-900/50"
-                    : "text-gray-100 hover:text-red-300 hover:bg-red-900/30"
+                    ? "text-orange-500 bg-orange-50 dark:text-red-300 dark:bg-red-900/50"
+                    : "text-slate-650 hover:text-orange-500 hover:bg-slate-100 dark:text-gray-100 dark:hover:text-red-300 dark:hover:bg-red-900/30"
                 }`}
               >
                 Offer help
@@ -417,8 +445,8 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
                   isActive("/report")
-                    ? "text-red-300 bg-red-900/50"
-                    : "text-gray-100 hover:text-red-300 hover:bg-red-900/30"
+                    ? "text-orange-500 bg-orange-50 dark:text-red-300 dark:bg-red-900/50"
+                    : "text-slate-650 hover:text-orange-500 hover:bg-slate-100 dark:text-gray-100 dark:hover:text-red-300 dark:hover:bg-red-900/30"
                 }`}
               >
                 Report Issue
@@ -428,8 +456,8 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
                   isActive("/about")
-                    ? "text-red-300 bg-red-900/50"
-                    : "text-gray-100 hover:text-red-300 hover:bg-red-900/30"
+                    ? "text-orange-500 bg-orange-50 dark:text-red-300 dark:bg-red-900/50"
+                    : "text-slate-650 hover:text-orange-500 hover:bg-slate-100 dark:text-gray-100 dark:hover:text-red-300 dark:hover:bg-red-900/30"
                 }`}
               >
                 About us
@@ -439,20 +467,20 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
                   isActive("/chat")
-                    ? "text-red-300 bg-red-900/50"
-                    : "text-gray-100 hover:text-red-300 hover:bg-red-900/30"
+                    ? "text-orange-500 bg-orange-50 dark:text-red-300 dark:bg-red-900/50"
+                    : "text-slate-650 hover:text-orange-500 hover:bg-slate-100 dark:text-gray-100 dark:hover:text-red-300 dark:hover:bg-red-900/30"
                 }`}
               >
                 Chat Room
               </Link>
 
               {/* Mobile Auth Links */}
-              <div className="border-t border-red-400/30 pt-4 mt-4 space-y-2">
+              <div className="border-t border-slate-200 dark:border-red-400/30 pt-4 mt-4 space-y-2">
                 {!authUser && (
                   <Link
                     to="/auth"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-yellow-400 hover:text-orange-400 hover:bg-yellow-500/20 transition-all duration-300"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-orange-500 hover:text-orange-600 hover:bg-orange-50 dark:text-yellow-400 dark:hover:text-orange-400 dark:hover:bg-yellow-500/20 transition-all duration-300"
                   >
                     Login / Signup
                   </Link>

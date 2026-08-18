@@ -9,6 +9,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RecentActivity from "./components/RecentActivity";
 import HeroSection from "./components/HeroSection";
+import { useEffect } from "react";
+import LandingPage from "./components/LandingPage";
+import useThemeStore from "./store/themeStore";
 import AboutUs from "./components/AboutUs";
 import Chat from "./components/Chat";
 import Help from "./components/Help";
@@ -19,18 +22,18 @@ import Dashboard from "./components/Dashboard";
 import "./App.css";
 
 // Home Page Component
-const HomePage = ({ onLearnMore }) => {
-  return (
-    <>
-      <HeroSection onLearnMore={onLearnMore} />
-      <RecentActivity />
-    </>
-  );
+const HomePage = () => {
+  return <LandingPage />;
 };
 
 // Main App Component with Routing
 const AppContent = () => {
   const navigate = useNavigate();
+  const initTheme = useThemeStore((state) => state.initTheme);
+
+  useEffect(() => {
+    initTheme();
+  }, [initTheme]);
 
   const handleLearnMore = () => {
     navigate("/about");
