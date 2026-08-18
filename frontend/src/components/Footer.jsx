@@ -94,7 +94,7 @@ const Footer = () => {
                 {/* Social Media Icons */}
                 <div className="flex space-x-3 pt-2">
                   <a
-                    href="https://www.linkedin.com/in/ankit-saini11/"
+                    href="https://www.linkedin.com/in/ankit-sainis/"
                     target="_blank"
                     className="bg-orange-100 hover:bg-orange-200 dark:bg-slate-800 dark:hover:bg-slate-700 p-2 rounded-full transition-colors"
                   >
